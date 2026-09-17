@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAvailableSlots } from '../controllers/salonController';
+import { getAvailableSlots } from '../controllers/salonController.js';
 
 const router = express.Router();
 

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import Booking from '../models/Booking';
-import Service from '../models/Service';
-import Salon from '../models/Salon';
+import Booking from '../models/Booking.js';
+import Service from '../models/Service.js';
+import Salon from '../models/Salon.js';
 
 const timeToMins = (time: string): number => {
   const [h, m] = time.split(':').map(Number);

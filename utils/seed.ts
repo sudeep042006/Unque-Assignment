@@ -2,10 +2,10 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bcrypt from 'bcryptjs';
 
-import User from '../models/User';
-import Salon from '../models/Salon';
-import Service from '../models/Service';
-import Booking from '../models/Booking';
+import User from '../models/User.js';
+import Salon from '../models/Salon.js';
+import Service from '../models/Service.js';
+import Booking from '../models/Booking.js';
 
 dotenv.config();
 
