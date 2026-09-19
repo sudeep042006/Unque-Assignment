@@ -1,3 +1,4 @@
+import { describe, it, expect, beforeAll, beforeEach, afterAll } from '@jest/globals';
 import request from 'supertest';
 import mongoose from 'mongoose';
 import app from '../../index.js';
@@ -5,28 +6,35 @@ import Salon from '../../models/Salon.js';
 import Service from '../../models/Service.js';
 import Booking from '../../models/Booking.js';
 import User from '../../models/User.js';
+import { connectTestDB, clearTestDB, closeTestDB } from '../helpers/db.js';
 
 describe('POST /api/bookings', () => {
-  beforeAll(async () => {
+  /* beforeAll(async () => {
     if (mongoose.connection.readyState === 0) {
       await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/salon-db-test');
     }
-  });
+  }); */
 
-  beforeEach(async () => {
+  beforeAll(async () => await connectTestDB());
+
+ /*  beforeEach(async () => {
     await Booking.deleteMany({});
     await User.deleteMany({});
     await Salon.deleteMany({});
     await Service.deleteMany({});
-  });
+  }); */
 
-  afterAll(async () => {
+  beforeEach(async () => await connectTestDB());
+
+ /*  afterAll(async () => {
     await Booking.deleteMany({});
     await User.deleteMany({});
     await Salon.deleteMany({});
     await Service.deleteMany({});
     await mongoose.connection.close();
-  });
+  }); */
+
+  afterAll(async () => await closeTestDB());
 
   it('should create booking successfully with HTTP 201', async () => {
   await request(app).post('/api/register').send({
