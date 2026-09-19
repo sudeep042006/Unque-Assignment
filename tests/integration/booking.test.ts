@@ -159,7 +159,7 @@ describe("POST /api/bookings", () => {
 
     const bookRes = await request(app)
       .post("/api/bookings")
-      .set("Authorization", `Bearer ${token1}`)
+      .set("Authorization", `Bearer ${token1}`)  
       .send({
         salonId: salonId.toString(),
         stylistId: new mongoose.Types.ObjectId().toString(),
@@ -172,7 +172,7 @@ describe("POST /api/bookings", () => {
 
     const cancelRes = await request(app)
       .post(`/api/bookings/${bookingId}/cancel`)
-      .set("Authorization", `Bearer ${token2}`);
+      .set("Authorization", `Bearer ${token2}`); 
 
     expect(cancelRes.status).toBe(403);
     expect(cancelRes.body).toHaveProperty(

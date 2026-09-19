@@ -10,6 +10,7 @@ import request from "supertest";
 import mongoose from "mongoose";
 import app from "../../index.js";
 import User from "../../models/User.js";
+("..");
 
 describe("Auth Endpoints Integration Tests", () => {
   const testUser = {
